@@ -9,9 +9,9 @@ class WordABC(ABC):
                  context_sentence: str,
                  source_type: SourceType,
                  source_title: str,
-                 source_location: str
+                 source_location: str | None
                  ):
-        self._id = None
+        self.id = None
         self.term = term
         self.definition = definition
         self.context_sentence = context_sentence

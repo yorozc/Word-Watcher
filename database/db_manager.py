@@ -24,6 +24,8 @@ class DBManager:
             """
             )
 
+    # basic crud 
+    
     def add_word(self):
         pass
 
@@ -42,6 +44,9 @@ class DBManager:
     # sorting queries
 
     def sort_by_alphabet(self):
+        pass
+
+    def sort_by_type(self):
         pass
 
     def sort_by_title(self):
