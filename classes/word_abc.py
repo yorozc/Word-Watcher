@@ -53,4 +53,27 @@ class WordABC(ABC):
     def context_sentence(self, context_sentence: str):
         self._context_sentence = context_sentence
 
+    @property
+    def source_type(self):
+        return self._source_type
+
+    @source_type.setter 
+    def source_type(self, source_type: Source_Type):
+        self._source_type = source_type
+
+    @property
+    def source_title(self):
+        return self._source_title
+
+    @source_title.setter
+    def source_title(self, source_title: str):
+        self._source_title = source_title
+
+    @property
+    def source_location(self):
+        return self._source_location
+
+    @source_location.setter
+    def source_location(self, source_location: str):
+        self._source_location = source_location
     
