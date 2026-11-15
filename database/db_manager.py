@@ -2,10 +2,28 @@ import sqlite3
 
 class DBManager:
     def __init__(self):
-        pass
+        self._db_name = "wordRepo.db"
 
     def create_db(self):
-        pass
+
+        with sqlite3.connect(self._db_name) as conn:
+            c = conn.cursor()
+
+            c.execute(
+            """
+            CREATE TABLE IF NOT EXISTS words(
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                term TEXT NOT NULL,
+                definition TEXT NOT NULL,
+                context_sentence TEXT NOT NULL,
+                source_title TEXT NOT NULL,
+                source_location TEXT NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+            """
+            )
+
+        
 
     def add_word(self):
         pass
