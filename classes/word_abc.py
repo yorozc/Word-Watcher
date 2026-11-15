@@ -1,5 +1,5 @@
 from abc import abstractmethod, ABC
-from source_type import Source_Type
+from source_type import SourceType
 
 class WordABC(ABC):
 
@@ -7,7 +7,7 @@ class WordABC(ABC):
                  term: str, 
                  definition: str,
                  context_sentence: str,
-                 source_type: Source_Type,
+                 source_type: SourceType,
                  source_title: str,
                  source_location: str
                  ):
@@ -58,7 +58,7 @@ class WordABC(ABC):
         return self._source_type
 
     @source_type.setter 
-    def source_type(self, source_type: Source_Type):
+    def source_type(self, source_type: SourceType):
         self._source_type = source_type
 
     @property
