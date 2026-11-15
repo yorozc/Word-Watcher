@@ -16,14 +16,13 @@ class DBManager:
                 term TEXT NOT NULL,
                 definition TEXT NOT NULL,
                 context_sentence TEXT NOT NULL,
+                source_type TEXT NOT NULL, 
                 source_title TEXT NOT NULL,
-                source_location TEXT NOT NULL,
+                source_location TEXT,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
             """
             )
-
-        
 
     def add_word(self):
         pass
