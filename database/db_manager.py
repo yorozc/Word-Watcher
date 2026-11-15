@@ -22,4 +22,15 @@ class DBManager:
     def get_all_words(self):
         pass
 
-    
+    # sorting queries
+
+    def sort_by_alphabet(self):
+        pass
+
+    def sort_by_title(self):
+        pass
+
+    def sort_by_date(self):
+        pass
+
+
