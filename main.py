@@ -1,5 +1,5 @@
-from gui import gui
-from tui.interface import run
+from gui.interface import gui_run
+from tui.interface import tui_run
 
 if __name__ == "__main__":
-    run()
+    tui_run()

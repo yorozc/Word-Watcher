@@ -6,5 +6,5 @@ from database.db_manager import DBManager
 db_m = DBManager()
 
 
-def run():
+def tui_run():
     db_m.create_db()
