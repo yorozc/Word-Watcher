@@ -27,7 +27,8 @@ class WordABC(ABC):
 
     @id.setter
     def id(self, _id: int):
-        self._id = _id
+        if isinstance(_id, int):
+            self._id = _id
 
     @property
     def term(self):
@@ -35,6 +36,12 @@ class WordABC(ABC):
 
     @term.setter
     def term(self, term: str):
+        if not isinstance(term, str):
+            raise TypeError("Term must be a string.")
+
+        if len(term) == 0:
+            raise ValueError("Term cannot be empty.")
+        
         self._term = term
 
     @property 
@@ -43,6 +50,12 @@ class WordABC(ABC):
 
     @definition.setter
     def definition(self, definition: str):
+        if not isinstance(definition, str):
+            raise TypeError("Definition must be a string.")
+
+        if len(definition) == 0:
+            raise ValueError("Definition cannot be empty.")
+
         self._definition = definition
 
     @property
@@ -51,6 +64,11 @@ class WordABC(ABC):
 
     @context_sentence.setter
     def context_sentence(self, context_sentence: str):
+        if not isinstance(context_sentence, str):
+            raise TypeError("Context sentence must be a string.")
+
+        if len(context_sentence) == 0:
+            raise ValueError("Context sentence cannot be empty.")
         self._context_sentence = context_sentence
 
     @property
@@ -59,6 +77,9 @@ class WordABC(ABC):
 
     @source_type.setter 
     def source_type(self, source_type: SourceType):
+        if not isinstance(source_type, (SourceType, str)):
+            raise TypeError("source_type must be of type SourceType(or string).")
+
         self._source_type = source_type
 
     @property
@@ -67,6 +88,12 @@ class WordABC(ABC):
 
     @source_title.setter
     def source_title(self, source_title: str):
+        if not isinstance(source_title, str):
+            raise TypeError("source_title must be a string.")
+
+        if len(source_title) == 0:
+            raise ValueError("source_title cannot be empty.")
+        
         self._source_title = source_title
 
     @property
@@ -75,5 +102,8 @@ class WordABC(ABC):
 
     @source_location.setter
     def source_location(self, source_location: str):
+        if not isinstance(source_location, str) and source_location is not None:
+            raise TypeError("Description must be a string or None.")
+        
         self._source_location = source_location
     
