@@ -1,5 +1,5 @@
 from abc import abstractmethod, ABC
-from source_type import SourceType
+from classes.source_type import SourceType
 
 class WordABC(ABC):
 

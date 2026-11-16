@@ -1,4 +1,5 @@
 import sqlite3
+from classes.word import Word
 
 class DBManager:
     def __init__(self):
@@ -22,24 +23,44 @@ class DBManager:
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
             """
-            )
-
-    # basic crud 
+            ) 
     
-    def add_word(self):
-        pass
+    def add_word(self, word: Word) -> None:
+        query = """
+                INSERT INTO words (term, definition, context_sentence, source_type, source_title, source_location) VALUES (?, ?, ?, ?, ?, ?)
+                """
+        with sqlite3.connect(self._db_name) as conn:
+            c = conn.cursor()
 
+            c.execute(query, (word.term, word.definition, word.context_sentence, word.source_type, word.source_title, word.source_location))
+            word.id = c.lastrowid
+
+
+    # TODO: delete word via: name or id
     def del_word(self):
         pass
 
+    # TODO: edit word via name or id
     def edit_word(self):
         pass
 
+    # TODO: get word via name or id
+    # get all words via some metric through the sorting queries below
     def get_word(self):
         pass
 
-    def get_all_words(self):
-        pass
+    def get_all_words(self) -> list:
+        query = """
+                SELECT * FROM words;
+                """
+        with sqlite3.connect(self._db_name) as conn:
+            c = conn.cursor()
+
+            c.execute(query)
+
+            word_data = c.fetchall()
+
+        return word_data
 
     # sorting queries
 
