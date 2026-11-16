@@ -55,9 +55,7 @@ class DBManager:
                 """
         with sqlite3.connect(self._db_name) as conn:
             c = conn.cursor()
-
             c.execute(query)
-
             word_data = c.fetchall()
 
         return word_data

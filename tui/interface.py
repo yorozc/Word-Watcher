@@ -8,7 +8,6 @@ db_m = DBManager()
 
 
 def tui_run():
-    db_m.create_db()
     print(db_m.get_all_words())
     print("Add word test:")
     input_term = input("Insert term: ")
