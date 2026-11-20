@@ -37,8 +37,25 @@ class DBManager:
 
 
     # TODO: delete word via: name or id
-    def del_word(self):
-        pass
+    def del_word_id(self, id: int):
+        query = f"""
+                DELETE FROM words WHERE id={id};
+                """
+
+        with sqlite3.connect(self._db_name) as conn:
+            c = conn.cursor()
+            c.execute(query)
+
+
+    # TODO: make a search -> confirm -> delete pipeline and delete via id when user confirms in GUI (only word name now for tui testing)
+    def del_word_name(self, term: str):
+        query = f"""
+                DELETE FROM words WHERE term == '{term.lower()}';
+                """
+
+        with sqlite3.connect(self._db_name) as conn:
+            c = conn.cursor()
+            c.execute(query)
 
     # TODO: edit word via name or id
     def edit_word(self):

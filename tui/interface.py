@@ -23,4 +23,9 @@ def tui_run():
 
     print(db_m.get_all_words())
 
+    word_del = input("Insert term to delete word: ")
+    db_m.del_word_name(word_del)
+
+    print(db_m.get_all_words())
+
 

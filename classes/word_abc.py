@@ -19,8 +19,6 @@ class WordABC(ABC):
         self.source_title = source_title
         self.source_location = source_location
 
-    # TODO: provide validation before value is set
-
     @property
     def id(self):
         return self._id 
@@ -103,7 +101,7 @@ class WordABC(ABC):
     @source_location.setter
     def source_location(self, source_location: str):
         if not isinstance(source_location, str) and source_location is not None:
-            raise TypeError("Description must be a string or None.")
+            raise TypeError("Description must be a string or None")
         
         self._source_location = source_location
     
