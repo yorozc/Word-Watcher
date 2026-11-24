@@ -63,8 +63,29 @@ class DBManager:
 
     # TODO: get word via name or id
     # get all words via some metric through the sorting queries below
-    def get_word(self):
-        pass
+    def get_word_id(self, id: int):
+        query = f"""
+                SELECT * FROM words WHERE id = {id}
+                """
+        with sqlite3.connect(self._db_name) as conn:
+            c = conn.cursor()
+            c.execute(query)
+
+            word_data = c.fetchone()
+
+        return word_data
+
+    def get_word_name(self, term: str):
+        query = f"""
+                SELECT * FROM words WHERE term = "{term}"
+                """
+        with sqlite3.connect(self._db_name) as conn:
+            c = conn.cursor()
+            c.execute(query)
+
+            word_data = c.fetchone()
+
+        return word_data
 
     def get_all_words(self) -> list:
         query = """
