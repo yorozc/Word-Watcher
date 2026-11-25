@@ -23,9 +23,19 @@ def tui_run():
 
     print(db_m.get_all_words())
 
-    word = input("Insert term to get word: ")
-    word = db_m.get_word_name(word)
+    # word = input("Insert term to get word: ")
+    # word = db_m.get_word_name(word)
 
-    print(word)
+    letter = input("Insert how to sort: ")
+    match letter:
+        case 'a': # alphabet
+            print(db_m.sort_by_alphabet())
+        case 'ty': # type
+            print(db_m.sort_by_type())
+        case 'ti': # title
+            print(db_m.sort_by_title())
+        case 'd': # date
+            print(db_m.sort_by_date())
+
 
 

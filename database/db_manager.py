@@ -101,15 +101,51 @@ class DBManager:
     # sorting queries
 
     def sort_by_alphabet(self):
-        pass
+        query = f"""
+                SELECT * from words ORDER BY term;
+                """
+
+        with sqlite3.connect(self._db_name) as conn:
+            c = conn.cursor()
+            c.execute(query)
+            word_data = c.fetchall()
+
+        return word_data
 
     def sort_by_type(self):
-        pass
+        query = f"""
+                SELECT * from words ORDER BY source_type;
+                """
+
+        with sqlite3.connect(self._db_name) as conn:
+            c = conn.cursor()
+            c.execute(query)
+            word_data = c.fetchall()
+
+        return word_data
 
     def sort_by_title(self):
-        pass
+        query = f"""
+                SELECT * from words ORDER BY source_title;
+                """
+
+        with sqlite3.connect(self._db_name) as conn:
+            c = conn.cursor()
+            c.execute(query)
+            word_data = c.fetchall()
+
+        return word_data
 
     def sort_by_date(self):
-        pass
+        query = f"""
+                SELECT * from words ORDER BY created_at;
+                """
+
+        with sqlite3.connect(self._db_name) as conn:
+            c = conn.cursor()
+            c.execute(query)
+            word_data = c.fetchall()
+
+        return word_data
 
 
