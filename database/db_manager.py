@@ -35,8 +35,6 @@ class DBManager:
             c.execute(query, (word.term, word.definition, word.context_sentence, word.source_type, word.source_title, word.source_location))
             word.id = c.lastrowid
 
-
-    # TODO: delete word via: name or id
     def del_word_id(self, id: int):
         query = f"""
                 DELETE FROM words WHERE id={id};
@@ -57,12 +55,9 @@ class DBManager:
             c = conn.cursor()
             c.execute(query)
 
-    # TODO: edit word via name or id
     def edit_word(self):
         pass
 
-    # TODO: get word via name or id
-    # get all words via some metric through the sorting queries below
     def get_word_id(self, id: int):
         query = f"""
                 SELECT * FROM words WHERE id = {id}
